@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DigiButigi - Designing Tools</title>
+  <link rel="stylesheet" href="style/x.css">
+  <link rel="stylesheet" href="style/mobile-only.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="logo">DigiButigi</a>
+      <!-- <div class="deliver">
+        <i class="fa-solid fa-location-dot"></i>
+        <span>Deliver to <b>World Wide</b></span>
+      </div> -->
+    </div>
+
+    <div class="nav-search">
+      <select>
+        <option>All</option>
+        <option>Products</option>
+        <option>Services</option>
+      </select>
+      <input type="text" placeholder="Search DigiButigi">
+      <button><i class="fa fa-search"></i></button>
+    </div>
+
+    <div class="nav-right">
+      <div class="lang">
+        <img src="https://flagcdn.com/w20/us.png" alt="EN"> EN
+      </div>
+      <div class="account">
+        <span>Hello, sign in</span><br>
+        <a href="login.html"><b>Account & Lists</b></a>
+      </div>
+      <div class="orders">
+        <span>Returns</span><br>
+        <a href="cart.html"><b>& Orders</b></a>
+      </div>
+      <div class="cart">
+        <a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sub Navbar -->
+  <div class="sub-navbar">
+    <span class="all-btn"><i class="fa fa-bars"></i> All</span>
+    <a href="electronics.html">OTT & Streaming</a>
+    <a href="fashion.html">Productivity Tools</a>
+    <a href="ai.html">Ai Tools</a>
+    <a href="grocery.html">VPN</a>
+    <a href="home.html">Designing Tools</a>
+    <a href="books.html">Music</a>
+    <a href="more.html">PC-Game</a>
+    <a href="mob.html">Mobile-Game</a>
+    <a href="gift.html">Gift Cards</a>
+  </div>
+
+<h2>Designing Tools</h2><div class='product-grid'>
+        <div class="product-card">
+          <img src="style/images/designing tools/1.jpg" alt="Home 1">
+          <h3>Home Product 1</h3>
+          <p>$10</p>
+          <button onclick="addToCart('Home Product 1',10,'images/demo1.jpg')">Add to Cart</button>
+        </div>
+        
+        <div class="product-card">
+          <img src="style/images/designing tools/2.jpg" alt="Home 2">
+          <h3>Home Product 2</h3>
+          <p>$20</p>
+          <button onclick="addToCart('Home Product 2',20,'images/demo2.jpg')">Add to Cart</button>
+        </div>
+        
+        <div class="product-card">
+          <img src="style/images/designing tools/3.jpg" alt="Home 3">
+          <h3>Home Product 3</h3>
+          <p>$30</p>
+          <button onclick="addToCart('Home Product 3',30,'images/demo3.jpg')">Add to Cart</button>
+        </div>
+        
+        <div class="product-card">
+          <img src="style/images/designing tools/4.jpg" alt="Home 4">
+          <h3>Home Product 4</h3>
+          <p>$40</p>
+          <button onclick="addToCart('Home Product 4',40,'images/demo4.jpg')">Add to Cart</button>
+        </div>
+        
+        <div class="product-card">
+          <img src="style/images/designing tools/5.jpg" alt="Home 5">
+          <h3>Home Product 5</h3>
+          <p>$50</p>
+          <button onclick="addToCart('Home Product 5',50,'images/demo5.jpg')">Add to Cart</button>
+        </div>
+        
+        <div class="product-card">
+          <img src="style/images/designing tools/6.jpg" alt="Home 6">
+          <h3>Home Product 6</h3>
+          <p>$60</p>
+          <button onclick="addToCart('Home Product 6',60,'images/demo6.jpg')">Add to Cart</button>
+        </div>
+        
+        <!-- <div class="product-card">
+          <img src="images/demo7.jpg" alt="Home 7">
+          <h3>Home Product 7</h3>
+          <p>$70</p>
+          <button onclick="addToCart('Home Product 7',70,'images/demo7.jpg')">Add to Cart</button>
+        </div>
+        
+        <div class="product-card">
+          <img src="images/demo8.jpg" alt="Home 8">
+          <h3>Home Product 8</h3>
+          <p>$80</p>
+          <button onclick="addToCart('Home Product 8',80,'images/demo8.jpg')">Add to Cart</button>
+        </div>
+        
+        <div class="product-card">
+          <img src="images/demo9.jpg" alt="Home 9">
+          <h3>Home Product 9</h3>
+          <p>$90</p>
+          <button onclick="addToCart('Home Product 9',90,'images/demo9.jpg')">Add to Cart</button>
+        </div>
+        
+        <div class="product-card">
+          <img src="images/demo10.jpg" alt="Home 10">
+          <h3>Home Product 10</h3>
+          <p>$100</p>
+          <button onclick="addToCart('Home Product 10',100,'images/demo10.jpg')">Add to Cart</button>
+        </div> -->
+        </div>
+<script src="js/cart.js"></script>
+
+<!-- === Sidebar Drawer (auto-built from sub-navbar) === -->
+<div id="sideMenu" class="side-menu" aria-hidden="true" role="dialog" aria-label="All categories">
+  <div class="side-menu__panel">
+    <button class="side-menu__close" aria-label="Close">×</button>
+    <div class="side-menu__header">
+      Hello, <a href="login.html">Login</a>
+    </div>
+    <div class="side-menu__section">
+      <h3>Shop by Category</h3>
+      <nav id="sideMenuCats" class="side-menu__list"></nav>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  function populateMenu(){
+    const sideList = document.getElementById('sideMenuCats');
+    if(!sideList) return;
+    sideList.innerHTML = '';
+    document.querySelectorAll('.sub-navbar a')?.forEach(a=>{
+      const item = a.cloneNode(true);
+      item.addEventListener('click', ()=> closeMenu());
+      sideList.appendChild(item);
+    });
+  }
+  const sideMenu = document.getElementById('sideMenu');
+  function openMenu(){ populateMenu(); sideMenu?.classList.add('open'); document.body.style.overflow='hidden'; sideMenu?.setAttribute('aria-hidden','false'); }
+  function closeMenu(){ sideMenu?.classList.remove('open'); document.body.style.overflow=''; sideMenu?.setAttribute('aria-hidden','true'); }
+  const allBtn = document.querySelector('.sub-navbar .all-btn') || document.querySelector('.sub-navbar span');
+  if(allBtn){ allBtn.style.cursor='pointer'; allBtn.addEventListener('click', openMenu); }
+  document.addEventListener('click', function(e){ if(e.target && e.target.classList && e.target.classList.contains('side-menu__close')) closeMenu(); });
+  sideMenu?.addEventListener('click', (e)=>{ if(e.target === sideMenu) closeMenu(); });
+  window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMenu(); });
+  window.__openSideMenu = openMenu; window.__closeSideMenu = closeMenu;
+})();
+</script>
+<script>
+(function(){
+  // 1 USD = কত BDT — দরকারমতো বদলাও
+  const EXCHANGE_RATE = 128;
+
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('.product-card').forEach(card=>{
+      // কার্ডে আগে থেকেই যদি BDT/৳ থাকে, কিছু করবো না
+      const hasBDT = [...card.querySelectorAll('p')].some(p=>/BDT|৳/i.test(p.textContent));
+      if(hasBDT) return;
+
+      // কার্ডে $ দামের p খুঁজে বের করা
+      const usdP = [...card.querySelectorAll('p')].find(p => /^\s*\$[\d.]+/.test(p.textContent.trim()));
+      if(!usdP) return;
+
+      const usd = parseFloat(usdP.textContent.replace(/[^0-9.]/g,''));
+      if(!usd) return;
+
+      const bdt = Math.round(usd * EXCHANGE_RATE);
+
+      // নতুন BDT লাইন বানিয়ে $ লাইনের ঠিক আগে বসাই
+      const p = document.createElement('p');
+      p.className = 'price-bdt';
+      p.textContent = `৳ ${bdt.toLocaleString('en-US')} BDT`;
+      usdP.classList.add('price-usd');
+      card.insertBefore(p, usdP);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

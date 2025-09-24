@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DigiButigi - Our Location</title>
+
+  <!-- তোমার সাইটের CSS -->
+  <link rel="stylesheet" href="style/x.css">
+  <link rel="stylesheet" href="style/main.css">
+  <link rel="stylesheet" href="style/mobile-only.css">
+  <!-- <link rel="stylesheet" href="style/style.css"> -->
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    .loc-wrap{ max-width: 1100px; margin: 90px auto 40px; padding: 0 16px; }
+    .loc-card{
+      background:#fff; border:1px solid #e5e7eb; border-radius:10px;
+      box-shadow:0 6px 18px rgba(0,0,0,.06); overflow:hidden;
+    }
+    .loc-head{ padding:16px 18px; background:#232f3e; color:#fff; }
+    #map{ height: 70vh; min-height: 420px; }
+    .loc-foot{
+      padding:12px 16px; display:flex; gap:12px; align-items:center; flex-wrap:wrap;
+    }
+    .btn-link{
+      display:inline-block; padding:8px 12px; border-radius:6px; text-decoration:none;
+      background:#febd69; color:#111; font-weight:600;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="loc-wrap">
+    <div class="loc-card">
+      <div class="loc-head">
+        <h2 style="margin:0;">DigiButigi — Our Office Location</h2>
+        <small>Click the marker for details. Pinch/scroll to zoom.</small>
+      </div>
+      <div id="map"></div>
+      <div class="loc-foot">
+        <a id="gmaps" class="btn-link" target="_blank" rel="noopener">Open in Google Maps</a>
+        <span id="addr"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // TODO: এখানে তোমাদের অফিসের কো-অর্ডিনেট বসাও
+    const office = { lat: 23.8103, lng: 90.4125, name: "DigiButigi Office" }; // Dhaka example
+    const map = L.map('map').setView([office.lat, office.lng], 15);
+
+    // Map tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Marker + popup
+    L.marker([office.lat, office.lng]).addTo(map)
+      .bindPopup(`<b>${office.name}</b><br>Lat: ${office.lat}, Lng: ${office.lng}`)
+      .openPopup();
+
+    // Google Maps link
+    const g = document.getElementById('gmaps');
+    g.href = `https://www.google.com/maps?q=${office.lat},${office.lng}`;
+
+    // Optional: দেখানোর ঠিকানা (যদি দিতে চাও)
+    document.getElementById('addr').textContent =
+      "Address: Set your office address here";
+  </script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home - DigiButigi - Home</title>
+  <link rel="stylesheet" href="style/x.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style/main.css">
+  <link rel="stylesheet" href="style/mobile-only.css">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="logo">DigiButigi</a>
+      <div class="deliver">
+        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+        <a href="location.html" class="our-location" aria-label="Our Location">Location</a>
+      </div>
+
+    </div>
+
+    <div class="nav-search">
+      <select>
+        <option>All</option>
+        <option>Products</option>
+        <option>Services</option>
+      </select>
+      <input type="text" placeholder="Search DigiButigi">
+      <button><i class="fa fa-search"></i></button>
+    </div>
+
+    <div class="nav-right">
+      <div class="lang">
+        <img src="https://flagcdn.com/w20/us.png" alt="EN"> EN
+      </div>
+      <div class="account">
+        <span>Hello, sign in</span><br>
+        <a href="login.html"><b>Account & Lists</b></a>
+      </div>
+      <div class="orders">
+        <span>Returns</span><br>
+        <a href="cart.html"><b>& Orders</b></a>
+      </div>
+      <div class="cart">
+        <a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sub Navbar -->
+  <div class="sub-navbar">
+    <span class="all-btn" role="button" aria-controls="sideMenu"><i class="fa fa-bars"></i> All</span>
+
+    <a href="electronics.html">OTT & Streaming</a>
+    <a href="fashion.html">Productivity Tools</a>
+    <a href="ai.html">Ai Tools</a>
+    <a href="grocery.html">VPN</a>
+    <a href="home.html">Designing Tools</a>
+    <a href="books.html">Music</a>
+    <a href="more.html">PC-Game</a>
+    <a href="mob.html">Mobile-Game</a>
+    <a href="gift.html">Gift Cards</a>
+  </div>
+  <script src="js/cart.js"></script>
+  <header>
+
+  </header>
+  <main>
+    <div class="slider" id="heroSlider">
+      <div class="slides" id="slideTrack">
+        <img src="style/images/banner.png" class="active" alt="">
+        <img src="style/images/Eco-Friendly Non-Profit Logo Design.png" alt="">
+        <img src="style/images/Untitled design.png" alt="">
+        <!-- <img src="images/img4.jpg" alt=""> -->
+        <!-- <img src="images/img5.jpg" alt=""> -->
+        <!-- <img src="images/img6.jpg" alt=""> -->
+        <!-- <img src="images/img7.jpg" alt=""> -->
+        <!-- <img src="images/img8.jpg" alt=""> -->
+        <!-- <img src="images/img9.jpg" alt=""> -->
+        <!-- <img src="images/img10.jpg" alt=""> -->
+        <!-- <img src="images/img11.jpg" alt=""> -->
+        <!-- <img src="images/img12.jpg" alt=""> -->
+      </div>
+      <button class="nav prev" onclick="prevSlide()">&#10094;</button>
+      <button class="nav next" onclick="nextSlide()">&#10095;</button>
+      <div class="dots" id="dots"></div>
+    </div>
+
+    <script>
+      const slides = document.querySelectorAll('#slideTrack img');
+      const dotsContainer = document.getElementById('dots');
+      let index = 0;
+
+      // ডট তৈরি
+      slides.forEach((_, i) => {
+        let dot = document.createElement("button");
+        if (i === 0) dot.classList.add("active");
+        dot.addEventListener("click", () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+      });
+      const dots = dotsContainer.children;
+
+      function showSlide(i) {
+        slides.forEach(s => s.classList.remove("active"));
+        [...dots].forEach(d => d.classList.remove("active"));
+        slides[i].classList.add("active");
+        dots[i].classList.add("active");
+      }
+
+      function nextSlide() {
+        index = (index + 1) % slides.length;
+        showSlide(index);
+      }
+      function prevSlide() {
+        index = (index - 1 + slides.length) % slides.length;
+        showSlide(index);
+      }
+      function goToSlide(i) {
+        index = i;
+        showSlide(index);
+      }
+
+      // Auto play প্রতি 5 সেকেন্ডে
+      setInterval(nextSlide, 5000); 
+    </script>
+  </main>
+  <section>
+    <h3 class="Shop" id="our-category">OUR CATEGORIES</h3>
+  </section>
+  <!-- Category Section -->
+  <section id="categories">
+    <div class="category-grid">
+
+      <a href="electronics.html" class="category-card">
+        <img src="" alt="">
+        <h3>OTT & Streaming</h3>
+      </a>
+
+      <a href="fashion.html" class="category-card">
+        <img src="style/images/fashion.jpg" alt="Fashion">
+        <h3>Fashion</h3>
+      </a>
+
+      <a href="grocery.html" class="category-card">
+        <img src="style/images/grocery.jpg" alt="Grocery">
+        <h3>Grocery</h3>
+      </a>
+
+      <a href="home.html" class="category-card">
+        <img src="style/images/home.jpg" alt="Home">
+        <h3>Home</h3>
+      </a>
+
+      <a href="books.html" class="category-card">
+        <img src="style/images/books.jpg" alt="Books">
+        <h3>Books</h3>
+      </a>
+
+      <a href="toys.html" class="category-card">
+        <img src="style/images/toys.jpg" alt="Toys">
+        <h3>Toys</h3>
+      </a>
+
+      <a href="sports.html" class="category-card">
+        <img src="style/images/sports.jpg" alt="Sports">
+        <h3>Sports</h3>
+      </a>
+
+      <a href="beauty.html" class="category-card">
+        <img src="style/images/beauty.jpg" alt="Beauty">
+        <h3>Beauty</h3>
+      </a>
+
+      <a href="gaming.html" class="category-card">
+        <img src="style/images/gaming.jpg" alt="Gaming">
+        <h3>Gaming</h3>
+      </a>
+
+      <a href="gift.html" class="category-card">
+        <img src="style/images/gift.jpg" alt="Gift Cards">
+        <h3>Gift Cards</h3>
+      </a>
+
+    </div>
+  </section>
+  <section>
+    <h4 class="Shop">— WHY CHOOSE US —</h4>
+  </section>
+  <!-- Why Choose Us Section -->
+  <section id="why-choose">
+    <div class="container">
+      <!-- Left Content -->
+      <div class="why-text">
+
+        <h2>— Because we care about your safety..</h2>
+
+        <div class="features">
+          <div class="feature-card">
+            <i class="fa-solid fa-mask-face"></i>
+            <p>Ensuring<br>Masks</p>
+          </div>
+          <div class="feature-card">
+            <i class="fa-solid fa-phone-volume"></i>
+            <p>24/7<br>Support</p>
+          </div>
+          <div class="feature-card">
+            <i class="fa-solid fa-pump-medical"></i>
+            <p>Sanitising<br>Hands & Equipment</p>
+          </div>
+          <div class="feature-card">
+            <i class="fa-solid fa-hand"></i>
+            <p>Ensuring<br>Gloves</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Image -->
+      <div class="why-img">
+        <img src="style/images/banner.png" alt="Our Safety Team">
+      </div>
+    </div>
+  </section>
+  <!-- Stats Section -->
+  <section id="stats">
+    <div class="stats-container">
+      <div class="stat-box">
+        <h2>15,000+</h2>
+        <p>Service Providers</p>
+      </div>
+      <div class="divider"></div>
+      <div class="stat-box">
+        <h2>2,00,000+</h2>
+        <p>Order Served</p>
+      </div>
+      <div class="divider"></div>
+      <div class="stat-box">
+        <h2>1,00,000+</h2>
+        <p>5 Star Received</p>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h4 class="Shop">Customer Revew</h4>
+  </section>
+  <section class="testimonial-slider">
+    <div class="slides">
+
+      <!-- Slide 1 -->
+      <div class="slide active">
+        <div class="testimonial-text">
+          <p>“এই প্ল্যাটফর্ম অনেক সুবিধা দিয়েছে, আমি খুব খুশি।”</p>
+        </div>
+        <div class="testimonial-video">
+          <video controls>
+            <source src="style/vedio/Untitled design.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="app-download">
+    <div class="app-container">
+
+      <!-- Phone Image -->
+      <div class="app-image">
+        <img src="style/images/app-download.webp" alt="App Preview">
+      </div>
+
+      <!-- Text + Buttons -->
+      <div class="app-text">
+        <h4>DOWNLOAD OUR APP</h4>
+        <h2>Any Service, Any Time, Anywhere.</h2>
+        <div class="app-buttons">
+          <a href="#" class="btn-store">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+              alt="Google Play">
+          </a>
+          <a href="#" class="btn-store">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store">
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Contact -->
+        <div class="footer-col">
+          <h4>CONTACT</h4>
+          <p>16516 / 88096780016516</p>
+          <p>info@sheba.xyz</p>
+          <p><b>Corporate Address</b><br>
+            M&S Tower, Plot: 2, Road: 11,<br>
+            Block: H, Banani, Dhaka
+          </p>
+          <p><b>TRADE LICENSE NO</b><br>
+            TRAD/DNCC/145647/2022
+          </p>
+        </div>
+
+        <!-- Other Pages -->
+        <div class="footer-col">
+          <h4>OTHER PAGES</h4>
+          <ul>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Terms of use</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Refund & Return Policy</a></li>
+            <li><a href="#">Sitemap</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div class="footer-col">
+          <h4>COMPANY</h4>
+          <ul>
+            <li><a href="#">sManager</a></li>
+            <li><a href="#">sBusiness</a></li>
+            <li><a href="#">sDelivery</a></li>
+            <li><a href="#">sBondhu</a></li>
+          </ul>
+        </div>
+
+        <!-- Download App -->
+        <div class="footer-col">
+          <h4>DOWNLOAD OUR APP</h4>
+          <p>Tackle your to-do list wherever you are with our mobile app & make your life easy.</p>
+          <div class="app-buttons">
+            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                alt="App Store"></a>
+            <a href="#"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                alt="Google Play"></a>
+          </div>
+          <div class="social">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom -->
+      <div class="footer-bottom">
+        <p>Copyright © 2025 DigiButigi | All Rights Reserved</p>
+      </div>
+    </footer>
+  </footer>
+
+  <!-- === Sidebar Drawer (auto-built from sub-navbar) === -->
+  <div id="sideMenu" class="side-menu" aria-hidden="true" role="dialog" aria-label="All categories">
+    <div class="side-menu__panel">
+      <button class="side-menu__close" aria-label="Close">×</button>
+      <div class="side-menu__header">
+        Hello, <a href="login.html">Login</a>
+      </div>
+      <div class="side-menu__section">
+        <h3>Shop by Category</h3>
+        <nav id="sideMenuCats" class="side-menu__list"></nav>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      function populateMenu() {
+        const sideList = document.getElementById('sideMenuCats');
+        if (!sideList) return;
+        sideList.innerHTML = '';
+        document.querySelectorAll('.sub-navbar a')?.forEach(a => {
+          const item = a.cloneNode(true);
+          item.addEventListener('click', () => closeMenu());
+          sideList.appendChild(item);
+        });
+      }
+      const sideMenu = document.getElementById('sideMenu');
+      function openMenu() { populateMenu(); sideMenu?.classList.add('open'); document.body.style.overflow = 'hidden'; sideMenu?.setAttribute('aria-hidden', 'false'); }
+      function closeMenu() { sideMenu?.classList.remove('open'); document.body.style.overflow = ''; sideMenu?.setAttribute('aria-hidden', 'true'); }
+      const allBtn = document.querySelector('.sub-navbar .all-btn') || document.querySelector('.sub-navbar span');
+      if (allBtn) { allBtn.style.cursor = 'pointer'; allBtn.addEventListener('click', openMenu); }
+      document.addEventListener('click', function (e) { if (e.target && e.target.classList && e.target.classList.contains('side-menu__close')) closeMenu(); });
+      sideMenu?.addEventListener('click', (e) => { if (e.target === sideMenu) closeMenu(); });
+      window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+      window.__openSideMenu = openMenu; window.__closeSideMenu = closeMenu;
+    })();
+  </script>
+
+</body>
+
+</html>

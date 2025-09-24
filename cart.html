@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DigiButigi - Cart</title>
+  <link rel="stylesheet" href="style/x.css">
+  <link rel="stylesheet" href="style/mobile-only.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+
+    h2 {
+      margin: 20px;
+      color: #222;
+    }
+
+    /* Cart container */
+    .cart-container {
+      width: 90%;
+      max-width: 1000px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #ddd;
+      padding: 15px 0;
+    }
+
+    .cart-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-right: 15px;
+    }
+
+    .item-info {
+      flex: 1;
+    }
+
+    .item-info h4 {
+      margin: 0;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .item-info p {
+      margin: 5px 0;
+      color: #666;
+    }
+
+    .remove-btn {
+      background: #ff4d4d;
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 18px;
+      margin-top: 15px;
+    }
+
+    /* Checkout */
+    .checkout-form {
+      margin-top: 30px;
+    }
+
+    .checkout-form label {
+      display: block;
+      margin: 8px 0 4px;
+      font-weight: bold;
+    }
+
+    .checkout-form input,
+    .checkout-form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    .checkout-form button {
+      background: #ff9900;
+      color: #fff;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .checkout-form button:hover {
+      background: #e68a00;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Your Cart</h2>
+  <div class="cart-container" id="cart-items">
+    <!-- Cart items will appear here -->
+  </div>
+
+  <div class="cart-container total">
+    <strong>Total: $<span id="total">0</span></strong>
+  </div>
+
+  <div class="cart-container checkout-form">
+    <h2>Checkout</h2>
+    <form id="checkoutForm" action="https://formsubmit.co/digibutigi@email.com" method="POST">
+      <!-- Hidden settings -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_subject" value="✅ DigiButigi Order Confirmed (Payment Success)">
+      <input type="hidden" name="_next" value="thankyou.html">
+
+      <!-- User Info -->
+      <label>Name</label>
+      <input type="text" name="name" required><br>
+
+      <label>Email</label>
+      <input type="email" name="email" required><br>
+
+      <label>Address</label>
+      <textarea name="address" required></textarea><br>
+
+      <!-- Order Details -->
+      <textarea id="orderDetails" name="orderDetails" hidden></textarea>
+
+      <!-- Payment Gateway Button -->
+      <button type="button" onclick="startPayment()">💳 Pay Now</button>
+
+      <!-- Hidden Final Submit -->
+      <button id="finalSubmit" type="submit" style="display:none;">Place Order</button>
+    </form>
+
+  </div>
+
+  <script>
+    // Cart data load from localStorage
+    const cartItemsContainer = document.getElementById('cart-items');
+    const totalEl = document.getElementById('total');
+    const orderDetailsEl = document.getElementById('orderDetails');
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function renderCart() {
+      cartItemsContainer.innerHTML = '';
+      let total = 0;
+      let details = '';
+
+      cart.forEach((item, index) => {
+        total += item.price;
+
+        details += `${item.name} - $${item.price}\n`;
+
+        const div = document.createElement('div');
+        div.classList.add('cart-item');
+        div.innerHTML = `
+          <img src="${item.image}" alt="${item.name}">
+          <div class="item-info">
+            <h4>${item.name}</h4>
+            <p>$${item.price}</p>
+          </div>
+          <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+        `;
+        cartItemsContainer.appendChild(div);
+      });
+
+      totalEl.textContent = total;
+      orderDetailsEl.value = details;
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    renderCart();
+  </script>
+
+
+<script>
+function startPayment() {
+  alert("Redirecting to Payment Gateway (Demo Mode)...");
+  // Redirect to demo payment page
+  window.location.href = "https://sandbox.sslcommerz.com/EasyCheckOut/testcde123";
+
+  // Simulate success after 5 sec
+  setTimeout(() => {
+    alert("✅ Payment Successful! Confirming your order...");
+    document.getElementById("finalSubmit").click();
+  }, 5000);
+}
+</script>
+
+
+<!-- === Sidebar Drawer (auto-built from sub-navbar) === -->
+<div id="sideMenu" class="side-menu" aria-hidden="true" role="dialog" aria-label="All categories">
+  <div class="side-menu__panel">
+    <button class="side-menu__close" aria-label="Close">×</button>
+    <div class="side-menu__header">
+      Hello, <a href="login.html">Login</a>
+    </div>
+    <div class="side-menu__section">
+      <h3>Shop by Category</h3>
+      <nav id="sideMenuCats" class="side-menu__list"></nav>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  function populateMenu(){
+    const sideList = document.getElementById('sideMenuCats');
+    if(!sideList) return;
+    sideList.innerHTML = '';
+    document.querySelectorAll('.sub-navbar a')?.forEach(a=>{
+      const item = a.cloneNode(true);
+      item.addEventListener('click', ()=> closeMenu());
+      sideList.appendChild(item);
+    });
+  }
+  const sideMenu = document.getElementById('sideMenu');
+  function openMenu(){ populateMenu(); sideMenu?.classList.add('open'); document.body.style.overflow='hidden'; sideMenu?.setAttribute('aria-hidden','false'); }
+  function closeMenu(){ sideMenu?.classList.remove('open'); document.body.style.overflow=''; sideMenu?.setAttribute('aria-hidden','true'); }
+  const allBtn = document.querySelector('.sub-navbar .all-btn') || document.querySelector('.sub-navbar span');
+  if(allBtn){ allBtn.style.cursor='pointer'; allBtn.addEventListener('click', openMenu); }
+  document.addEventListener('click', function(e){ if(e.target && e.target.classList && e.target.classList.contains('side-menu__close')) closeMenu(); });
+  sideMenu?.addEventListener('click', (e)=>{ if(e.target === sideMenu) closeMenu(); });
+  window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMenu(); });
+  window.__openSideMenu = openMenu; window.__closeSideMenu = closeMenu;
+})();
+</script>
+
+</body>
+
+</html>

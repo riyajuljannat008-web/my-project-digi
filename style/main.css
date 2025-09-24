@@ -1,0 +1,666 @@
+/* Hero Slider */
+.slider {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 400px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.slides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+  border-radius: 10px;
+  box-shadow: #bc005e;
+}
+
+.slides img.active {
+  display: block;
+  animation: fadeIn 1s ease-in-out;
+
+}
+
+/* Navigation Arrows */
+.slider .nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: #fff;
+  font-size: 30px;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s;
+  z-index: 10;
+}
+
+.slider .nav:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+.slider .prev {
+  left: 15px;
+}
+
+.slider .next {
+  right: 15px;
+}
+
+/* Dots */
+.dots {
+  text-align: center;
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dots button {
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  border-radius: 50%;
+  border: none;
+  background: #ccc;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dots button.active {
+  background: #ff9900;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+/* sectionn 1 */
+
+/* Category Section */
+#categories {
+  padding: 40px 20px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+#categories h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #222;
+  font-weight: bold;
+}
+
+/* Grid Layout */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+/* Card */
+.category-card {
+  display: block;
+  text-decoration: none;
+  color: #333;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Image full fit */
+.category-card img {
+  width: 100%;
+  height: 200px;  /* তুমি চাইলে height বাড়াতে/কমাতে পারো */
+  object-fit: cover; /* crop হবে না, বরং 100% ফিট হবে */
+  display: block;
+}
+
+/* Title */
+.category-card h3 {
+  margin: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Hover Effect */
+.category-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+}
+
+.Shop{
+    display: flex;
+      /* টেক্সট মাঝখানে আনার জন্য */
+      align-items: center;
+      /* vertically center */
+      justify-content: center;
+      /* horizontally center */
+      background-color: #f35fb0;
+      /* পিঙ্ক রঙ */
+      color: #fff;
+      /* লেখা সাদা */
+      font-size: 24px;
+      /* লেখা বড় */
+      font-weight: 800;
+      /* bold */
+      padding: 20px 60px;
+      /* উপরে-নিচে আর পাশে স্পেস */
+      border-radius: 10px;
+      /* কোণ গোল */
+      width: 400px;
+      /* বাটনের প্রস্থ */
+      margin: 20px auto;
+      margin-top: 90px;
+      /* মাঝখানে বসবে */
+      text-align: center;
+      /* সেন্টার টেক্সট */
+  }
+
+
+  /* sectionn 2 */
+
+  /* Why Choose Us Section */
+#why-choose {
+  background: #f9f9f9;
+  padding: 60px 20px;
+}
+
+#why-choose .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  gap: 30px;
+}
+
+.why-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.why-text h4 {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.why-text h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #222;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.feature-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card i {
+  font-size: 28px;
+  color: #d63384;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.why-img {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.why-img img {
+  max-width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px #d63384;
+}
+
+/* sectionn 3 */
+
+/* Stats Section */
+#stats {
+  background: #f8f9fa;
+  padding: 40px 20px;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1000px;
+  margin: auto;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.stat-box {
+  text-align: center;
+  flex: 1;
+  min-width: 200px;
+}
+
+.stat-box h2 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.stat-box p {
+  font-size: 16px;
+  color: #555;
+}
+
+.divider {
+  width: 1px;
+  height: 50px;
+  background: #ddd;
+}
+
+@media (max-width: 768px) {
+  .stats-container {
+    flex-direction: column;
+  }
+  .divider {
+    display: none;
+  }
+}
+
+/* sectionn 4 */
+
+ body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .testimonial-slider {
+      position: relative;
+      max-width: 1000px;
+      margin: 40px auto;
+      overflow: hidden;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .testimonial-text {
+      flex: 1;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .testimonial-text h4 {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .testimonial-video {
+      flex: 1;
+    }
+
+    .testimonial-video video {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+   
+    /* sectionn 5 */
+
+    .app-download {
+  background: #fdf0f0;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.app-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1100px;
+  width: 100%;
+}
+
+.app-image img {
+  width: 280px;
+}
+
+.app-text {
+  flex: 1;
+}
+
+.app-text h4 {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.app-text h2 {
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #222;
+}
+
+.app-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.app-buttons .btn-store img {
+  height: 55px;
+  transition: transform 0.3s ease;
+}
+
+.app-buttons .btn-store img:hover {
+  transform: scale(1.05);
+}
+
+
+/* footerr */
+
+.footer {
+  background: #f3f4f6;
+  padding: 40px 20px 20px;
+  color: #333;
+  font-size: 14px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer h4 {
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #000;
+}
+
+.footer-col p {
+  margin: 5px 0;
+  line-height: 1.5;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin: 6px 0;
+}
+
+.footer-col ul li a {
+  text-decoration: none;
+  color: #333;
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #ff9900;
+}
+
+.app-buttons img {
+  width: 140px;
+  margin: 8px 5px;
+  cursor: pointer;
+}
+
+.social {
+  margin-top: 15px;
+}
+
+.social a {
+  font-size: 20px;
+  margin-right: 12px;
+  color: #333;
+  transition: 0.3s;
+}
+
+.social a:hover {
+  color: #ff9900;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+  font-size: 13px;
+  color: #555;
+}
+
+
+/* responsive */
+
+/* ========== General Fixes ========== */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Grid responsive */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  padding: 10px;
+}
+
+/* Navbar Responsive */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-search {
+  flex: 1;
+  display: flex;
+  max-width: 500px;
+}
+
+.nav-search input {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Sub-navbar scrollable on mobile */
+.sub-navbar {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  gap: 12px;
+  padding: 8px 10px;
+}
+
+/* Footer Responsive */
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* ========== Mobile First Breakpoints ========== */
+@media (max-width: 768px) {
+  /* Navbar stacked */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-search {
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .nav-right {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Stats Section */
+  .stats-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  .divider {
+    display: none;
+  }
+
+  /* App Download Section */
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .app-image {
+    margin-bottom: 15px;
+  }
+}
+
+/* Tablet/Desktop Improvements */
+@media (min-width: 769px) {
+  .app-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .app-text {
+    flex: 1;
+  }
+  .app-image {
+    flex: 1;
+  }
+}
+
+
+/* subnavbar */
+
+/* === Added by Fix Pass: Responsive improvements === */
+.product-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+.product-card{
+  border:1px solid #eee;
+  border-radius:10px;
+  padding:12px;
+  background:#fff;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.product-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+}
+.product-card img{
+  width:100%;
+  height:auto;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+/* Slider scales with viewport */
+.slider{
+  height: clamp(220px, 40vw, 420px);
+}
+
+/* Download app section responsive tweaks */
+.app-section .app-download{
+  gap: 20px;
+}
+.app-section .app-image img{
+  max-width: 100%;
+  height: auto;
+}
+
+/* Footer fix on small screens */
+@media (max-width: 600px){
+  .footer-container{
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* === OVERRIDES: Product images fixed box, NO CROP === */
+.product-card{
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card img{
+  width: 100%;
+  /* রেস্পনসিভ ফিক্সড হাইট: মোবাইলে ছোট, বড় স্ক্রিনে একটু বড় */
+  height: clamp(170px, 24vw, 230px);
+  /* ছবির অনুপাত ঠিক রেখে পুরোটা দেখাও = NO CROP */
+  object-fit: contain;
+  background: #fff;
+  padding: 6px;               /* ছবির চারপাশে স্পেস */
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 1px #eee; /* হালকা বর্ডার লুক */
+}
+
+/* শিরোনাম/দাম/বোতাম স্পেসিং */
+.product-card h3{ margin: 10px 0 6px; }
+.product-card p { margin: 0 0 8px; font-weight: 700; color: #444; }
+/* বাটন সবসময় কার্ডের নিচে যাবে */
+.product-card button{ margin-top: auto; }
+
+/* স্লাইডারের ছবির অপ্রয়োজনীয় শ্যাডো ক্লিয়ার (optional) */
+.slides img{ box-shadow: none; }
