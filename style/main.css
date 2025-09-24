@@ -607,7 +607,7 @@ img {
 }
 .product-card:hover{
   transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+  box-shadow: 0 6px 16px rgba(195, 33, 33, 0.08);
 }
 .product-card img{
   width:100%;
@@ -664,3 +664,6 @@ img {
 
 /* স্লাইডারের ছবির অপ্রয়োজনীয় শ্যাডো ক্লিয়ার (optional) */
 .slides img{ box-shadow: none; }
+
+
+
